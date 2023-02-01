@@ -142,7 +142,7 @@ def get_list_wks(model_samples, list_dates_real, timestep, wk=0):
         list_wks.append(wk_fake['cnt_0'])
     return list_wks
 
-def plot_compare_sum(dict_weeks, dict_weeks_real, bbox, figtitle="", scaler=None):
+def plot_compare_sum(dict_weeks, dict_weeks_real, bbox, figtitle="", ts=24, scaler=None, ylabel='', xlabel='Intervalos'):
 
     fig = plt.figure(figsize=(15,8))
     # top plots
@@ -157,7 +157,7 @@ def plot_compare_sum(dict_weeks, dict_weeks_real, bbox, figtitle="", scaler=None
     bottom = fig.add_subplot(3, 3, (8, 8))
     axes = [top_1, top_2, top_3, mid_1, mid_2, mid_3, bottom]    
     
-    x = np.arange(0, 24, 1) 
+    x = np.arange(0, ts, 1) 
     wks_name=['Real', 'Seg.', 'Ter.', 'Qua.', 'Qui.', 'Sex.', 'Sab.', 'Dom.']
     colors = ['orange','coral', 'fuchsia','purple', 'red','green','brown']
     # para customizar a legenda
@@ -178,9 +178,9 @@ def plot_compare_sum(dict_weeks, dict_weeks_real, bbox, figtitle="", scaler=None
         axes[wk].fill_between(x, media_somas-std, media_somas+std, alpha=0.3,color=colors[wk])
         axes[wk].ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         if wk in lista_ylabel:
-            axes[wk].set_ylabel('Bicicletas alugadas')
+            axes[wk].set_ylabel(ylabel)
         if wk in lista_xlabel:
-            axes[wk].set_xlabel('Horas')        
+            axes[wk].set_xlabel(xlabel)        
         lista_handles.append(handles_s)
     lista_handles = [handle_r] + lista_handles
     plt.legend(lista_handles, wks_name, bbox_to_anchor=bbox, loc='lower right')
