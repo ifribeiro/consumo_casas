@@ -10,7 +10,7 @@ from tensorflow import data as tfdata
 from tensorflow import nn
 from keras import (Model, Sequential, Input)
 from keras.layers import (GRU, LSTM, Dense)
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 from keras.losses import (BinaryCrossentropy, MeanSquaredError)
 
 from synthesizers.gan import BaseModel
