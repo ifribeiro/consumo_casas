@@ -20,8 +20,8 @@ from tensorflow import dtypes
 from tensorflow import random
 from typeguard import typechecked
 
-from preprocessing.regular.processor import (
-    RegularDataProcessor, RegularModels)
+# from preprocessing.regular.processor import (
+#     RegularDataProcessor, RegularModels)
 from preprocessing.timeseries.timeseries_processor import (
     TimeSeriesDataProcessor, TimeSeriesModels)
 from synthesizers.saving_keras import make_keras_picklable
